@@ -1,0 +1,7 @@
+node_modules
+.idea/*
+.vscode/settings.json
+build/
+.travis.yml
+.editorconfig
+build
