@@ -43,7 +43,7 @@ This project demonstrates the practical application of blockchain principles, em
 1. Clone the repo
 
    ```sh
-   git clone https://github.com/adorsys/p2p-lending.git
+   git clone https://github.com/jainishshah0124/P2P-Lending.git
    ```
 
 2. Run Ganache on port 8545
