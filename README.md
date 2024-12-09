@@ -12,7 +12,7 @@
 
 **Project Title:** Decentralized Peer-to-Peer Lending Platform
 
-# Nexus Finance
+## Nexus Finance
 
 1. Drashti Mehta - 889212452 - dumehta@csu.fullerton.edu
 
@@ -37,6 +37,8 @@ This project demonstrates the practical application of blockchain principles, em
 - [Truffle](https://truffleframework.com/truffle)
 - [Vue.js](https://vuejs.org/)
 - [web3.js](https://web3js.readthedocs.io/en/1.0/getting-started.html)
+
+## Features
 
 ### Installation
 
@@ -93,3 +95,4 @@ This project demonstrates the practical application of blockchain principles, em
    ```sh
    localhost:8080
    ```
+
