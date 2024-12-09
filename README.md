@@ -3,20 +3,16 @@
 ## Table of Contents
 
 - [About the Project](#about-the-project)
-  - [Challenges](#challenges)
-  - [Built With](#built-with)
-  - [Installation](#installation)
+- [Built With](#built-with)
+- [Installation](#installation)
 
 <!-- ABOUT THE PROJECT -->
-
-## About The Project
-
 **CPSC 559:** Advanced Blockchain
 **Professor:** Wenlin Han
 
 **Project Title:** Decentralized Peer-to-Peer Lending Platform
 
-# Team MetaZombies
+# Nexus Finance
 
 1. Drashti Mehta - 889212452 - dumehta@csu.fullerton.edu
 
@@ -25,6 +21,8 @@
 3. Hiral Pokiya - 818055535 - hiral14@csu.fullerton.edu
 
 4. Sai Preethi Mekala - 881461081 - saipreethi@csu.fullerton.edu
+
+## About The Project
 
 This project explores the implementation of smart contracts for a Decentralized Autonomous Organization (DAO) focused on creating a decentralized peer-to-peer lending platform on the Ethereum blockchain. The platform leverages blockchain technology to enable fair, transparent, and global lending opportunities, effectively serving as a decentralized alternative to traditional banking systems.
 
