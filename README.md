@@ -2,10 +2,14 @@
 
 ## Table of Contents
 
-- [About the Project](#about-the-project)
-- [Built With](#built-with)
-- [Features](#features)
-- [Installation](#installation)
+- [P2P-Lending](#p2p-lending)
+  - [Table of Contents](#table-of-contents)
+  - [Nexus Finance](#nexus-finance)
+  - [About The Project](#about-the-project)
+  - [Built With](#built-with)
+  - [Features](#features)
+    - [Initial Investment Phase](#initial-investment-phase)
+    - [Installation](#installation)
 
 <!-- ABOUT THE PROJECT -->
 **CPSC 559:** Advanced Blockchain
@@ -32,7 +36,7 @@ The open ecosystem of this platform aims to provide more accessible and affordab
 This project demonstrates the practical application of blockchain principles, emphasizing smart contract design, decentralization, and transparency, aligning with the objectives of CPSC 559: Advanced Blockchain.
 
 
-### Built With
+## Built With
 
 - [Node 18](https://nodejs.org/en/)
 - [Truffle](https://truffleframework.com/truffle)
@@ -40,9 +44,13 @@ This project demonstrates the practical application of blockchain principles, em
 - [web3.js](https://web3js.readthedocs.io/en/1.0/getting-started.html)
 
 ## Features
+### Initial Investment Phase
+- First Investment Window: Opens for initial investments with a goal to reach 10 ETH.
+- Trust Tokens: Investors contributing ETH in this phase will receive trust tokens, equally distributed once the goal of 10 - ETH is achieved.
+- Lending System Activation: The lending system starts once the initial investment goal is met.
 
 ### Installation
-
+ 
 1. Clone the repo
 
    ```sh
