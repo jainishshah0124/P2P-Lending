@@ -46,10 +46,10 @@ This project demonstrates the practical application of blockchain principles, em
    git clone https://github.com/jainishshah0124/P2P-Lending.git
    ```
 
-2. Run Ganache on port 8545
+2. Run Ganache on port 7545
 
    ```sh
-   Ganache -> Settings -> Server -> Port Number -> 8545
+   Ganache -> Settings -> Server -> Port Number -> 7545
    ```
 
 3. Install dependencies
