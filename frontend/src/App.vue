@@ -3,7 +3,7 @@
     <nav class="navbar">
       <div class="navbar__left">
         <router-link :to="{ name: 'home' }" class="navbar__title"
-          >p2p lending</router-link
+          >Nexus Finance</router-link
         >
       </div>
       <router-link

@@ -36,8 +36,6 @@ This project explores the implementation of smart contracts for a Decentralized 
 
 The open ecosystem of this platform aims to provide more accessible and affordable lending options by eliminating intermediaries and reducing overhead costs. Additionally, it empowers users worldwide to engage in lending and borrowing with confidence in a secure and decentralized environment. The DAO structure allows for adaptability and potential future growth, driven by collective decisions of its participants.
 
-This project demonstrates the practical application of blockchain principles, emphasizing smart contract design, decentralization, and transparency, aligning with the objectives of CPSC 559: Advanced Blockchain.
-
 
 ## Built With
 

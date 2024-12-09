@@ -2,7 +2,7 @@
   <div class="landingPage" v-if="active">
     <div class="card card--threeRows">
       <div class="card__title-section">
-        <div class="title">p2p Lending</div>
+        <div class="title">Nexus Finance</div>
         <div class="subtitle">
           Invest in a decentralized platform tackling the following problems:
         </div>
