@@ -22,15 +22,5 @@
     "migrate:dev": "truffle migrate --reset --network development",
     "migrate:ropsten": "truffle migrate --reset --network ropsten",
     "deploy:app": "cd ./frontend && ./deploy.sh"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/adorsys/p2p-lending.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/adorsys/p2p-lending/issues"
-  },
-  "homepage": "https://github.com/adorsys/p2p-lending#readme"
+  }
 }
