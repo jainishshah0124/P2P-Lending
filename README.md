@@ -48,7 +48,7 @@ This project demonstrates the practical application of blockchain principles, em
 
 ## Features
 ### Initial Investment Phase
-- ***First Investment Window:** Opens for initial investments with a goal to reach 10 ETH.
+- **First Investment Window:** Opens for initial investments with a goal to reach 10 ETH.
 - **Trust Tokens:** Investors contributing ETH in this phase will receive trust tokens, equally distributed once the goal of 10 - ETH is achieved.
 - **Lending System Activation:** The lending system starts once the initial investment goal is met.
   
