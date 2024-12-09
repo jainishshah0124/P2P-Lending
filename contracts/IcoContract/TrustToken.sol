@@ -1,7 +1,3 @@
-/**
- * Directory: P2P-Lending/contracts/IcoContract/TrustToken.sol
- * Implements EIP20 token standard: https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md
- */
 pragma solidity ^0.5.0;                                                                             // Solidity compiler version
 import "./EIP20Interface.sol";
 import "../SafeMath.sol";
@@ -51,10 +47,7 @@ contract TrustToken is EIP20Interface {
         isIcoActive = true;
     }
 
-    /**
-     * @notice Sets the proposalManagement address
-     * @param _management The address of the proposalManagement
-     */
+    
     function setManagement(address _management) external {
         if (proposalManagement != address(0)) {
             require(msg.sender == proposalManagement, "invalid caller");
@@ -62,28 +55,20 @@ contract TrustToken is EIP20Interface {
         proposalManagement = _management;
     }
 
-    /**
-     * @notice Locks the token of '_user'
-     * @param _user Address of user to lock
-     */
+    
     function lockUser(address _user) external calledByProposalManagement returns(bool) {
         isUserLocked[_user] = true;
         return isUserLocked[_user];
     }
 
-    /**
-     * @notice Unlocks token of a list of users
-     * @param _users List of users to unlock
-     */
+    
     function unlockUsers(address[] calldata _users) external calledByProposalManagement {
         for(uint256 i; i < _users.length; i++) {
             isUserLocked[_users[i]] = false;
         }
     }
 
-    /**
-     * @notice Invest Ether to become a Trustee and get token when ICO finishes
-     */
+    
     function participate () external payable {
         require(isIcoActive, "ICO inactive");
 
@@ -117,12 +102,7 @@ contract TrustToken is EIP20Interface {
         }
     }
 
-    /**
-     * @notice Send '_value' token to '_to' from 'msg.sender'
-     * @param _to The address of the recipient
-     * @param _value The amount of token to be transferred
-     * @return Whether the transfer was successful or not
-     */
+    
     function transfer(address _to, uint256 _value) public returns (bool success) {
         require(tokenBalances[msg.sender] >= _value, "insufficient funds");
 
@@ -144,13 +124,7 @@ contract TrustToken is EIP20Interface {
         return true;
     }
 
-    /**
-     * @notice Send '_value' token to '_to' from '_from' on the condition it is approved by '_from'
-     * @param _from The address of the sender
-     * @param _to The address of the recipient
-     * @param _value The amount of token to be transferred
-     * @return Whether the transfer was successful or not
-     */
+    
     function transferFrom(address _from, address _to, uint256 _value) public returns (bool) {
         uint256 allowance = allowed[_from][msg.sender];
         require(allowance >= _value, "insufficient allowance");
@@ -175,12 +149,7 @@ contract TrustToken is EIP20Interface {
         return true;
     }
 
-    /**
-     * @notice 'msg.sender' approves '_spender' to spend '_value' tokens
-     * @param _spender The address of the account able to transfer the tokens
-     * @param _value The amount of tokens to be approved for transfer
-     * @return Whether the approval was successful or not
-     */
+    
     function approve(address _spender, uint256 _value) public returns (bool success) {
         require(balanceOf(msg.sender) >= _value, "insufficient funds");
         allowed[msg.sender][_spender] = _value;
@@ -188,26 +157,17 @@ contract TrustToken is EIP20Interface {
         return true;
     }
 
-    /**
-     * @param _owner The address of the account owning tokens
-     * @param _spender The address of the account able to transfer the tokens
-     * @return Amount of remaining tokens allowed to spent
-     */
+    
     function allowance(address _owner, address _spender) public view returns (uint256 remaining) {
         return allowed[_owner][_spender];
     }
 
-    /**
-     * @param _owner The address from which the balance will be retrieved
-     * @return The balance
-     */
+    
     function balanceOf(address _owner) public view returns (uint256 balance) {
         return tokenBalances[_owner];
     }
 
-    /**
-     * @notice get all initialization parameters for ico contract
-     */
+    
     function getICOParameters()
         public
         view
@@ -229,16 +189,12 @@ contract TrustToken is EIP20Interface {
             numTrustees = trusteeCount;
     }
 
-    /**
-     * @return Ether balance of 'msg.sender'
-     */
+    
     function getEtherBalances() public view returns(uint256) {
         return etherBalances[msg.sender];
     }
 
-    /**
-     * @notice Distribute tokenSupply between all Trustees
-     */
+    
     function distributeToken() private {
         for(uint256 i; i < participants.length; i++) {
             tokenBalances[participants[i]] = (etherBalances[participants[i]].mul(totalSupply)).div(contractEtherBalance);

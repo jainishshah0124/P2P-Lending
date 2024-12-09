@@ -32,12 +32,7 @@ contract RequestManagement {
         requestFactory = _factory;
     }
 
-    /**
-     * @notice Creates a lending request for the amount you specified
-     * @param _amount the amount you want to borrow in Wei
-     * @param _paybackAmount the amount you are willing to pay back - has to be greater than _amount
-     * @param _purpose the reason you want to borrow ether
-     */
+    
     function ask (uint256 _amount, uint256 _paybackAmount, string memory _purpose) public {
         // validate the input parameters
         require(_amount > 0, "invalid amount");
@@ -64,10 +59,7 @@ contract RequestManagement {
         emit RequestCreated();
     }
 
-    /**
-     * @notice Lend or payback the ether amount of the lendingRequest (costs ETHER)
-     * @param _lendingRequest the address of the lendingRequest you want to deposit ether in
-     */
+    
     function deposit(address payable _lendingRequest) public payable {
         // validate input
         require(validRequest[_lendingRequest], "invalid request");
@@ -83,10 +75,7 @@ contract RequestManagement {
         }
     }
 
-    /**
-     * @notice withdraw Ether from the lendingRequest
-     * @param _lendingRequest the address of the lendingRequest to withdraw from
-     */
+    
     function withdraw(address payable _lendingRequest) public {
         // validate input
         require(validRequest[_lendingRequest], "invalid request");
@@ -105,10 +94,7 @@ contract RequestManagement {
         emit Withdraw();
     }
 
-    /**
-     * @notice cancels the request
-     * @param _lendingRequest the address of the request to cancel
-     */
+    
     function cancelRequest(address payable _lendingRequest) public {
         // validate input
         require(validRequest[_lendingRequest], "invalid Request");
@@ -119,26 +105,12 @@ contract RequestManagement {
         emit Withdraw();
     }
 
-    /**
-     * @notice gets the lendingRequests for the specified user
-     * @return all lendingRequests
-     */
+    
     function getRequests() public view returns(address[] memory) {
         return lendingRequests;
     }
 
-    /**
-     * @notice gets askAmount, paybackAmount and purpose to given proposalAddress
-     * @param _lendingRequest the address to get the parameters from
-     * @return asker address of the asker
-     * @return lender address of the lender
-     * @return askAmount of the proposal
-     * @return paybackAmount of the proposal
-     * @return contractFee the contract fee for the lending request
-     * @return purpose of the proposal
-     * @return lent wheather the money was lent or not
-     * @return debtSettled wheather the debt was settled by the asker
-     */
+    
     function getRequestParameters(address payable _lendingRequest)
         public
         view
@@ -153,10 +125,7 @@ contract RequestManagement {
         return LendingRequestInterface(_lendingRequest).getRequestState();
     }
 
-    /**
-     * @notice removes the lendingRequest from the management structures
-     * @param _request the lendingRequest that will be removed
-     */
+    
     function removeRequest(address _request, address _sender) private {
         // validate input
         require(validRequest[_request], "invalid request");

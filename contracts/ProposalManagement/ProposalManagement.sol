@@ -26,12 +26,7 @@ interface MemberProposalInterface {
 }
 
 contract ProposalManagement {
-    /*
-     * proposalType == 0 -> invalid proposal
-     * proposalType == 1 -> contractFee proposal
-     * proposalType == 2 -> addMember proposal
-     * proposalType == 3 -> removeMember proposal
-     */
+   
     mapping(address => uint256) public proposalType;
     mapping(address => uint256) public memberId;
     mapping(address => address[]) private lockedUsersPerProposal;
@@ -62,10 +57,7 @@ contract ProposalManagement {
         TrustTokenInterface(trustTokenContract).setManagement(address(this));
     }
 
-    /**
-     * @notice creates a proposal contract to change the fee used in LendingRequests
-     * @param _proposedFee the new fee
-     */
+    
     function createContractFeeProposal(uint256 _proposedFee) external {
         // validate input
         require(memberId[msg.sender] != 0, "not a member");
@@ -82,12 +74,7 @@ contract ProposalManagement {
         emit ProposalCreated();
     }
 
-    /**
-     * @notice creates a proposal contract to change membership status for the member
-     * @param _memberAddress the address of the member
-     * @param _adding true if member is to be added false otherwise
-     * @dev only callable by registered members
-     */
+    
     function createMemberProposal(address _memberAddress, bool _adding) external {
         // validate input
         require(TrustTokenInterface(trustTokenContract).isTrustee(msg.sender), "invalid caller");
@@ -109,12 +96,7 @@ contract ProposalManagement {
         emit ProposalCreated();
     }
 
-    /**
-     * @notice vote for a proposal at the specified address
-     * @param _stance true if you want to cast a positive vote, false otherwise
-     * @param _proposalAddress the address of the proposal you want to vote for
-     * @dev only callable by registered members
-     */
+    
     function vote(bool _stance, address _proposalAddress) external {
         // validate input
         uint256 proposalParameter = proposalType[_proposalAddress];
@@ -149,38 +131,22 @@ contract ProposalManagement {
         }
     }
 
-    /**
-     * @notice returns number of proposals
-     * @return proposals.length
-     */
+    
     function getProposalsLength() external view returns (uint256) {
         return proposals.length;
     }
 
-    /**
-     * @notice returns all saved proposals
-     * @return proposals or [] if empty
-     */
+    
     function getProposals() external view returns (address[] memory props) {
         return proposals.length != 0 ? proposals : props;
     }
 
-    /**
-     * @notice returns the number of current members
-     * @return number of members
-     */
+   
     function getMembersLength() external view returns (uint256) {
         return members.length;
     }
 
-    /**
-     * @notice returns the proposal parameters
-     * @param _proposal the address of the proposal to get the parameters for
-     * @return proposalAddress the address of the queried proposal
-     * @return propType the type of the proposal
-     * @return proposalFee proposed contractFee if type is fee proposal
-     * @return memberAddress address of the member if type is member proposal
-     */
+    
     function getProposalParameters(address _proposal)
         external
         view
@@ -197,12 +163,7 @@ contract ProposalManagement {
         }
     }
 
-    /**
-     * @dev handles the return value of the vote function
-     * @param _parameter internal representation of proposal type
-     * @param _passed true if proposal passed false otherwise
-     * @param _proposalAddress address of the proposal currently being executed
-     */
+   
     function handleVoteReturn(uint256 _parameter, bool _passed, address _proposalAddress)
         private returns (bool) {
         /// case: contractFeeProposal
@@ -243,10 +204,7 @@ contract ProposalManagement {
         return false;
     }
 
-    /**
-     * @dev adds the member at the specified address to current members
-     * @param _memberAddress the address of the member to add
-     */
+    
     function addMember(address _memberAddress) private {
         // validate input
         require(_memberAddress != address(0), "invalid address");
@@ -288,10 +246,7 @@ contract ProposalManagement {
         emit MembershipChanged();
     }
 
-    /**
-     * @notice removes the proposal from the management structures
-     * @param _proposal address of the proposal to remove
-     */
+    
     function removeProposal(address _proposal) private {
         // validate input
         uint256 propType = proposalType[_proposal];

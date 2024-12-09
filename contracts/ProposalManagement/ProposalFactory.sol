@@ -4,12 +4,7 @@ import "./ContractFeeProposal.sol";
 import "./MemberProposal.sol";
 
 contract ProposalFactory {
-    /**
-     * @notice creates a new contractFee proposal
-     * @param _proposedFee the suggested new fee
-     * @param _minimumNumberOfVotes the minimum number of votes needed to execute the proposal
-     * @param _majorityMargin the percentage of positive votes needed for proposal to pass
-     */
+    
     function newContractFeeProposal(
         uint256 _proposedFee,
         uint16 _minimumNumberOfVotes,
@@ -25,13 +20,7 @@ contract ProposalFactory {
         );
     }
 
-    /**
-     * @notice creates a new member proposal
-     * @param _memberAddress address of the member
-     * @param _adding true to add member - false to remove member
-     * @param _trusteeCount the current number of TrustToken-Holders
-     * @param _majorityMargin the percentage of positive votes needed for proposal to pass
-     */
+   
     function newMemberProposal(
         address _memberAddress,
         bool _adding,

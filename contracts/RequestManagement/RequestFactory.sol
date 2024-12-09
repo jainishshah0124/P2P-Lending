@@ -20,13 +20,6 @@ contract RequestFactory {
         proposalManagement = _proposalManagement;
     }
 
-    /**
-     * @notice creates a new lendingRequest
-     * @param _amount the amount the asker wants to borrow
-     * @param _paybackAmount the amoun the asker is willing to pay the lender after getting the loan
-     * @param _purpose the reason the asker wants to borrow money
-     * @param _origin origin address of the call -> address of the asker
-     */
     function createLendingRequest(
         uint256 _amount,
         uint256 _paybackAmount,

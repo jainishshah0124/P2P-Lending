@@ -33,13 +33,7 @@ contract ContractFeeProposal {
         selfdestruct(management);
     }
 
-    /**
-     * @notice registers a vote for the proposal and triggers execution if conditions are met
-     * @param _stance true for a positive vote - false otherwise
-     * @param _origin the address of the initial function call
-     * @return propPassed true if proposal met the required number of positive votes - false otherwise
-     * @return propExecuted true if proposal met the required minimum number of votes - false otherwise
-     */
+    
     function vote(bool _stance, address _origin) external returns (bool propPassed, bool propExecuted) {
         // check input parameters
         require(msg.sender == management, "invalid caller");
@@ -59,9 +53,7 @@ contract ContractFeeProposal {
         }
     }
 
-    /**
-     * @notice executes the proposal and updates the internal state
-     */
+    
     function execute() private {
         // check internal state
         require(!proposalExecuted, "executed");

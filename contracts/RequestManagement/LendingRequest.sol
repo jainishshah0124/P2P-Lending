@@ -35,11 +35,7 @@ contract LendingRequest {
         trustToken = _trustToken;
     }
 
-    /**
-     * @notice deposit the ether that is being sent with the function call
-     * @param _origin the address of the initial caller of the function
-     * @return true on success - false otherwise
-     */
+    
     function deposit(address payable _origin) external payable returns (bool originIsLender, bool originIsAsker) {
         /*
          * Case 1:
@@ -75,10 +71,7 @@ contract LendingRequest {
         }
     }
 
-    /**
-     * @notice withdraw the current balance of the contract
-     * @param _origin the address of the initial caller of the function
-     */
+    
     function withdraw(address _origin) external {
         /*
          * Case 1: ( asker withdraws amountAsked )
@@ -117,34 +110,26 @@ contract LendingRequest {
         }
     }
 
-    /**
-     * @notice destroys the lendingRequest contract and forwards all remaining funds to the management contract
-     */
+    
     function cleanUp() external {
         require(msg.sender == managementContract, "cleanUp failed");
         selfdestruct(trustToken);
     }
 
-    /**
-     * @notice cancels the request if possible
-     */
+    
     function cancelRequest() external {
         require(msg.sender == managementContract, "invalid caller");
         require(moneyLent == false && debtSettled == false, "invalid conditions");
         selfdestruct(asker);
     }
 
-    /**
-     * @notice getter for all relevant information of the lending request
-     */
+    
     function getRequestParameters() external view
         returns (address payable, address payable, uint256, uint256, uint256, string memory) {
         return (asker, lender, amountAsked, paybackAmount, contractFee, purpose);
     }
 
-    /**
-     * @notice getter for proposal state
-     */
+    
     function getRequestState() external view returns (bool, bool, bool, bool) {
         return (verifiedAsker, moneyLent, withdrawnByAsker, debtSettled);
     }
